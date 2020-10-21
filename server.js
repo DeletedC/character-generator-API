@@ -53,6 +53,7 @@ console.log('connected to mongoose...');
 // CONTROLLERS
 ///////////////////////////
 
+const charactersController = require('./controllers/charactersController');
 
 /////////////////////
 // MIDDLEWARE
@@ -62,6 +63,7 @@ console.log('connected to mongoose...');
 app.use(cors());
 app.use(express.json());
 
+app.use('/characters', charactersController);
 
 ////////////////////////
 // ROUTES
