@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8000;
+const cors = require('cors');
 
 const mongoose = require('mongoose');
 
@@ -58,9 +59,17 @@ console.log('connected to mongoose...');
 ////////////////////
 
 // cors middlewear, configured by corsOptions
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
+
+////////////////////////
+// ROUTES
+///////////////////////
+
+app.get('/', (req, res) => {
+    res.send("Hello from Character Generator API!");
+});
 
 /////////////////////////
 // LISTENER
